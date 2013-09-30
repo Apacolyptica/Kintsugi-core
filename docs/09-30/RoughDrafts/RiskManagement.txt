@@ -1,0 +1,74 @@
+Risk brainstorming (not exactly IEEE format, but it's a prototype)
+
+Risk					Likelyhood			Impact (worst case)			Contingency
+
+Member leaves project:			Low				Severe
+
+Member Gets Sick (mild)			Medium				Low-Medium
+
+Member Gets Sick (severe)		Low-Medium			High
+
+Member gets injured (debilitating)	Low				Severe
+
+Member has family emergency		Low				Medium-High
+
+Member has to leave town (short time)	Medium				Medium
+
+Member has to leave town (long time)	Low				High
+
+Member's computer crashes		Medium				Medium-High
+
+Project Falls Behind Schedule		Medium-High(sadly)		Medium-High
+
+Member's internet connection fails	Medium-Hgih			Medium-High
+
+Members lack key knowledge		Very High			Medium-High
+
+Members non-project
+-schedule is too heavy			Very High			High
+
+Customer is not available		High				Medium
+
+Report is behind schedule		Medium				High
+
+Testing is behind schedule		Medium-High			Medium-High
+
+Documentation is behind schedule	Medium-High			Medium-High
+
+Schedule estimation is significantly
+off					High				High
+
+Project requirements are unclear	Very High			High
+
+Project diverges from customers
+vision					Medium				High
+
+Tasks are too complex (need		High				Medium
+decompositon)
+
+Scope Creep				High				Severe
+
+Miscommunication between
+customer and team			Very-High			High
+
+Team member gets detained by
+TSA					Low				Medium-High
+
+-----
+
+(here's the more opportunity kind of risk)
+
+Opportunity				Likelyhood			Impact (best case)		Action taken
+
+Project is ahead of schedule		Medium				Medium
+
+Overestimated task time			Medium				Medium
+
+Report proceeding ahead of schedule	Medium				Medium-High
+
+Potential good idea for the project	Low				Medium
+(outside the initial plan)
+
+New technology provides unexpected
+assistance				Very low			High
+

@@ -1,0 +1,18 @@
+Project proposal super early skeleton to be edited in later.
+
+This is a draft so rough it should be written on sandpaper, so don't take this as gospel (this is just meant to get the ball rolling).  This is going to get revised A LOT before we turn it in (particularly after we meet with the client on Tuesday).
+
+1.  Motivation:  The current CWE database search application has all the user friendliness of a brick to the face (it's only ID number, which helps only the people who know it already, probably not the intended users).  Also, the relations between CWE's are not easy to track on the current system.  This system will allow CWE's to be searchable under other criteria and map out said relations.
+
+2.  Functionalities:  I am officially guessing here, but the functionalities as I understand it are the ability to read in XML data and place it in a more easily searchable database (SQL, etc), as well as a way to map relationships.  I would assume a way for an admin to "manually" edit things would be implemented as well.  A web application would be created for an end user to search said database in an easily applicable manner.
+
+3.  Implementation strategy: I assume scripting languages with CGI functions as well as a database language.  Possibly some back-end systems for implementing automated services if necessary (such as an automated updating device).
+
+4.  Technical Challenges:  Converting the XML database (which may not be in a standard format) into a more usable one in a timely manner.  To be able to optimize large chunks of data while maintaining usability.  To make several interacting systems work together as a coherent whole.
+
+5.  Team (I'll extract the old emails for that).
+
+Proposed title:  Project kintsugi (the japanese art of filling cracks with gold and improving the initial artwork literally "better then new").
+
+-----------------------------
+

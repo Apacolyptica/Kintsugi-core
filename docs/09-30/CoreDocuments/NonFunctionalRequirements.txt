@@ -1,0 +1,17 @@
+Nonfunctional requirements and assumptions
+
+Assumptions made about the system.
+-Unless down for maintainance, the system will remain in constant connection with the database
+-Users will have a reasonably fast and reliable internet connection
+-The core CWE data will always be available to populate the database
+-The application will always be publically available (as opposed to a privately used application)
+-The application is a "living project," meaning that other teams and developers will add on to the existing system.
+
+Nonfunctional requirements and prioritization
+-The system must be usable
+--Usability will prioritize search engine functionality
+-The web application must be reasonably well optimized
+--Optimization will prioritize minimizing additional overhead to compensate for the following things
+---CWEs having potentially large data sets
+---Many CWEs being retrieved by the search engine
+-Development will prioritize well-constructed, modular design of the core system above quantity of tasks completed.
