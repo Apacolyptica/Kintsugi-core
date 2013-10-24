@@ -1,0 +1,37 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:     basexserver
+# Required-Start:   $syslog
+# Required-Stop:    $syslog
+# Should-Start:     $local_fs
+# Should-Stop:      $local_fs
+# Default-Start:    2 3 4 5
+# Default-Stop:     0 1 6
+# Short-Description:    basexserver - Persistent key-value db
+# Description:      basexserver - Persistent key-value db. Loads CWE database on startup.
+### END INIT INFO
+
+
+PATH=/opt/redis/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+case "$1" in
+  start)
+    echo -n "Starting $DESC: "
+    su -c 'basexserver -s -d -c"open cwec_v2-5"' - basex
+    ;;
+  stop)
+    echo "Stopping $DESC"
+    basexserver stop
+   ;;
+
+  restart|force-reload)
+    ${0} stop
+    ${0} start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/$NAME {start|stop|restart|force-reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
