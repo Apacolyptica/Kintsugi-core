@@ -1,0 +1,37 @@
+Rough BaseX setup procedure (so far)
+This document and the implementation details therein will change a lot before we hit production
+
+1.  Installed latest version of Java 7 JRE
+    1.1.  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2F www.oracle.com%2F" "http://download.oracle.com/otn-pub/java/jdk/7u40-b43/jre-7u40-linux-i586.tar.gz"
+    1.2.  Followed instructions at: http://askubuntu.com/questions/56104/how-can-i-install-sun-oracles-proprietary-java-6-7-jre-or-jdk/56119#56119
+2.  Installed BaseX
+    2.1.  sudo apt-get install basex
+3.  Downloaded/extracted CWE XML and XSD
+    3.1.  Created a suitable directory: sudo mkdir /usr/share/kintsugi
+    3.2.  cd /usr/share/kintsugi
+    3.3.  sudo wget http://cwe.mitre.org/data/xml/cwec_v2.5.xml.zip ; sudo wget http://cwe.mitre.org/data/xsd/cwe_schema_v5.3.xsd
+    3.4.  sudo unzip cwec_v2.5.xml.zip
+    3.5.  sudo rm cwec_v2.5.xml.zip
+4.  Created a Linux user for BaseX
+    4.1.  adduser --system --shell /bin/sh basex
+5.  AS THE BASEX USER (important -- the database and all settings are stored in the basex user's local directory!):
+    5.1.  Opened the basex application
+    5.2.  ALTER USER admin
+        [created/typed in admin password]
+    5.3.  CREATE USER kintsugi
+        [created/typed in kintsugi password]
+6.  Initial CWE database setup
+    6.1.  Logged in as admin
+    6.2.  CREATE DATABASE cwec_v2-5 /usr/share/kintsugi/cwec_v2.5.xml
+    6.3.  GRANT READ ON cwec_v2-5 TO kintsugi
+7.  Added sysvinit script to run basexserver on boot (as basex user) and load cwec_v2-5 database
+    7.1.  See /etc/init.d/basexserver
+        TODO: Capture this script in GitHub
+    7.2.  Added to startup sysvinit scripts: sudo update-rc.d basexserver defaults
+8.  Isolated BaseX executables to the basex user group (so only root and the basex user can run it)
+    8.1.  Added basex to the basex group using sudo usermod -aG basex basex    
+    8.2.  Changed the executables' owner group to basex using sudo chgrp basex /usr/bin/basex /usr/bin/X11/basex /usr/bin/basexclient /usr/bin/X11/basexclient /usr/bin/basexgui /usr/bin/X11/basexgui /usr/bin/basexserver /usr/bin/X11/basexserver
+    8.3.  Restricted the permissions to root and the basex group using sudo chmod 750 /usr/bin/basex /usr/bin/X11/basex /usr/bin/basexclient /usr/bin/X11/basexclient /usr/bin/basexgui /usr/bin/X11/basexgui /usr/bin/basexserver /usr/bin/X11/basexserver
+9.  Installed BaseX Python 3 API: sudo wget https://raw.github.com/BaseXdb/basex-api/master/src/main/python3/BaseXClient.py --output-document=/usr/local/lib/python3.3/site-packages/BaseXClient.py
+10.  Created a Kintsugi settings file at /usr/local/lib/python3.3/site-packages/KintsugiSettings.py
+    10.1.  Restricted so only root can access: sudo chmod 700 /usr/local/lib/python3.3/site-packages/KintsugiSettings.py
