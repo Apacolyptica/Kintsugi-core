@@ -1,56 +1,51 @@
-# Query script for BaseX that pulls entries containing the given word (or phrase?)
-# Opens the CWE database, queries for a particular node, prints the WHOLE node,
-#      and exits.
+#!/usr/local/bin/python3
+
+print( "Content-Type: text/html")
+print( )
+
+import cgi, cgitb
+cgitb.enable()
 
 import BaseXClient
 from KintsugiSettings import BASEX_KINTSUGI_PASSWORD
 
-# Create session
+form = cgi.FieldStorage()
+
+print( "<body>" )
+
+form = cgi.FieldStorage()
+
 session = BaseXClient.Session('localhost', 1984, 'kintsugi', BASEX_KINTSUGI_PASSWORD)
 
-search = input( 'Search For: ' )
-
-print( "Searching for " +  search + "..." )
+search = str( form.getvalue( "search" ) )
 
 try:
-    # Open the CWE database
     session.execute("open cwec_v2-5")
 
-    # Create query, with placeholder for the parameter
-    #idQuery = "for $v in //Weakness_Catalog[. contains text { \"" + search + "\" } ] \
-    #             return $v"
-
-    # Searches for the word to appear anywhere within a weakness
     textQuery = "for $v in //Weakness_Catalog/Weaknesses/Weakness[. contains text \"" + search + "\" ]  \
-                   return <row> { data($v//@ID) , data($v//@Name) } </row>"
+                   return <tr><td> { data($v//@ID) , data($v//@Name) } </td></tr>"
 
-    # Search for the word to appear in name
     nameQuery = "for $v in //Weakness_Catalog/Weaknesses/Weakness[@Name[. contains text \"" + search + "\" ] ] \
-                    return <row> { data($v//@ID) , data($v//@Name) } </row>"
+                    return <tr><td> { data($v//@ID) , data($v//@Name) } </td></tr>"
 
-    # Send the query
     query = session.query(nameQuery)
 
-    # Bind the parameter
-    # query.bind("$id", "1000")
-
-    # Execute query and print result
-    print( "\n\nWeaknesses with " + search + " in their name:\n")
+    print( "<p> Weaknesses with " + search + " in their name:</p><table>")
     print(query.execute())
+    print( "</table>" )
 
-
-    # Close query object
     query.close()
 
-    # query for full text
     query = session.query(textQuery)
 
-    print( "\n\nWeaknesses with " + search + " in their text:\n")
+    print( "<p>Weaknesses with " + search + " in their text:</p><table>")
     print(query.execute())
+    print( "</table>" )
 
     query.close()
 
 finally:
-    # Close session
     if session:
         session.close()
+
+print( "</body>" )
