@@ -17,7 +17,8 @@ PATH=/opt/redis/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 case "$1" in
   start)
     echo -n "Starting $DESC: "
-    su -c 'basexserver -s -d -c"open cwec_v2-5"' - basex
+#    su -c 'basexserver -s -d -c"open cwec_v2-5"' - basex
+    su -c 'basexserver -s -d' - basex
     ;;
   stop)
     echo "Stopping $DESC"
