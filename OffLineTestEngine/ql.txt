@@ -1,0 +1,7 @@
+Q1 =declare variable $word external; for $v in //Weakness[. contains text {$word} using stemming using stop words default]return data($v/@ID)
+
+Q2 =declare variable $word external; for $v in //Weakness[. contains text {$word} using stemming using stop words default]return data($v/@ID)
+
+Q3 = declare variable $word external; for $v in //Weakness[descendant-or-self::node()/@Language_Name = "C++"][@Name[. contains text {$word} using stemming using stop words default]]return data($v/@ID)
+
+Q4 = declare variable $word external; for $v in //Weakness[descendant-or-self::node()/@Language_Name = ("C", "C++", "Java")][@Name[. contains text {$word} using stemming using stop words default]]return data($v/@ID)
