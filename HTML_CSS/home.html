@@ -2,13 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<meta charset="utf-8">
 		<title>CWExplorer</title>
 		<link rel="stylesheet" type="text/css" href="common.css"/>
 		<link rel="stylesheet" type="text/css" href="homestyle.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'/>
+		
+		<!-- Syntax highlighting stuff -->
+		<script type="text/javascript" src="sh_main.js"></script>
+		<script type="text/javascript" src="lang/sh_c.js"></script>
+		<script type="text/javascript" src="lang/sh_cpp.js"></script>
+		<script type="text/javascript" src="lang/sh_java.js"></script>
+		<link rel="stylesheet" type="text/css" href="sh_nedit"/>
 	</head>
 	
-	<body>
+	<body onload="sh_highlightDocument();">
 		<div class="wrapper">
 
 			<div class="brandingTitle">

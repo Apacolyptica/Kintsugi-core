@@ -1,14 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" charset="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<meta charset="utf-8">
 		<title>Search - CWExplorer</title>
 		<link rel="stylesheet" type="text/css" href="common.css"/>
 		<link rel="stylesheet" type="text/css" href="searchstyle.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'/>
+	
+		<!-- Syntax highlighting stuff -->
+		<script type="text/javascript" src="scripts/sh_main.js"></script>
+		<script type="text/javascript" src="scripts/lang/sh_c.js"></script>
+		<script type="text/javascript" src="scripts/lang/sh_cpp.js"></script>
+		<script type="text/javascript" src="scripts/lang/sh_java.js"></script>
+		<link rel="stylesheet" type="text/css" href="sh_nedit.css"/>
 	</head>
 	
-	<body>
+	<body onload="sh_highlightDocument();">
 		<div class="wrapper">
 		
 			<div class="brandingTitle">
@@ -104,8 +112,8 @@
 				<div class="searchBar">
 				
 					<!-- TODO: Add an action path -->
-					<form action="">
-						<input type="text" name="searchField" value=""/>
+					<form action="/cgi-bin/query.py">
+						<input type="text" name="search" value=""/>
 						<input type="submit" name="searchButton" value=""/>
 					</form>
 					
