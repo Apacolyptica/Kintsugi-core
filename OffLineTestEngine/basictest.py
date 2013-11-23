@@ -11,9 +11,11 @@ from KintsugiSettings import BASEX_KINTSUGI_PASSWORD
 
 session = BaseXClient.Session('localhost', 1984, 'kintsugi', BASEX_KINTSUGI_PASSWORD)
 
+# The core of this method is just the search engine
+
+# Opening web-forms (will modify as necessary for the Djangofication
+
 # form = cgi.FieldStorage()
-
-
 
 # setup to connect to the Basex database
 # set the search string provided by the HTML form
@@ -22,28 +24,25 @@ session = BaseXClient.Session('localhost', 1984, 'kintsugi', BASEX_KINTSUGI_PASS
 
 #DCR: A pre-django page generator for our convenience
 
-#DCR: This method takes the results from a variable number of searches
-#DCR: ...and puts them into a single coherent page
+#This is a deprecated method for test purposes only
+#This method prints the output to the console after shaving blanks
 
 def output(searchResults):
-
-	#page = "<html><head><title>Test Page</title><meta http-equiv = \"Content Type\" \
-	#content = \"text\\html; charset = utf-8\"></meta></head><body>"
-
-	page = "TEST PAGE\n"
+	#page = "TEST PAGE\n"
+	page = ""
 	for result in searchResults:
-		page += ("\n\n" + result)
-	page += "\n\n<!--This has been a search engine test-->\n"
-	# page += "</body></html>"
-
+		if result:
+			page += result
 	return page
-
 
 try:
 
-	#DCR: I am going to import the query externally in this example
-	#DCR: Error handling is assumed to be handled externally
+	# I am going to import the query externally
+	# Error handling is assumed to be handled externally
 
+	#This method takes in the search string and the query to be run
+	#The search is treated as a variable in the BaseX query
+	#This method returns the results of that query
 	def dbSearch(search, protoQuery):
 		
 		#DCR: Declared in and outside of the function because of scope technicalities
@@ -59,18 +58,9 @@ try:
     		# bind the search variable to the query
 		query.bind("$word", search)
 		
-    		# print results of the query within a table format
-    		# print(query.execute()) is where the query is sent to the BaseX database and the result is printed
-		
-    		# print( "<p> Weaknesses with " + search + " in their name:</p><table>")
-    		# print(query.execute())
-    		# print( "</table>" )
-
-		#result = "<br /><table>"
-		#result += query.execute()
-		#result += "</table>"
-		
+		# Execute the query
 		result = query.execute()
+
     		# close the query/session
 		query.close()
 	

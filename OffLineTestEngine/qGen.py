@@ -5,7 +5,7 @@ START = "declare variable $word external; for $v in //Weakness"
 # I am only returning ID for testing purposes
 # This will vary once we get our formatting in check
 
-END = "return data($v/@ID)"
+END = "return <td>{data($v/@ID), data($v/@Name)}</td>"
 # END = "return <tr><td> { data($v//@ID) , data($v//@Name) } </td></tr>"
 
 #fType is the type of filter (language name, OS name, etc.)
@@ -71,7 +71,7 @@ def searchType(sType):
 	#Could automate this part to one sub-method to cut down on redundant code
 	if(search < 0):
 		result = "[@ID" + coreString + "]"
-	elif(search > 0):
+	elif(search == 0):
 		result = "[@Name" + coreString + "]"
 	
 	return result
@@ -86,7 +86,13 @@ def makeQuery(sType, fType, fList):
 
 	#if there are no filters, fType will be 0
 	if (fType != 0):
-		query += searchFilter(fType, fList)
+		#Assumes a one to one ratio between fType entries and fList lists
+		#Will optimize later
+
+		fCount = 0
+		while fCount < (len(fType)):
+			query += searchFilter(fType[fCount], fList[fCount])
+			fCount += 1
 
 	query += searchType(sType)
 	query += END
