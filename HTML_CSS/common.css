@@ -63,7 +63,6 @@ body {
 
 .navBar a:link, .navBar a:visited {
 	text-decoration: none;
-	padding: 6px;
 	color: #007ACC;
 }
 
@@ -78,7 +77,9 @@ body {
 
 .header li {
 	display: inline;
-	padding: 10px;
+	padding: 16px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 #home {
@@ -104,4 +105,8 @@ body {
 	margin-top: 10px;
 	text-align: center;
 	clear: both;
+}
+
+.footer a:hover, .footer a:active {
+	color: white;
 }
