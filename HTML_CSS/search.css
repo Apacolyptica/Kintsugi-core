@@ -95,8 +95,14 @@
 	border-radius: 5px;
 	border-color: #A19B88;
 	margin: 10px;
+	margin-bottom: 30px;
 	width: 72%;
 	float: left;
+}
+
+/* Zebra striping for the table */
+.searchResults tr:nth-child(even) {
+	background-color: #EFF3EB;
 }
 
 #resultsTitle {
@@ -107,15 +113,7 @@
 	padding: 5px;
 }
 
-.searchResults {
-	margin-bottom: 30px;
-}
-
 .cweTableId {
 	text-align: center;
 	width: 50px;
-}
-
-.tableAlt {
-	background-color: #EFF3EB;
 }
