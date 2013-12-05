@@ -3,39 +3,29 @@ from search import main
 
 from django.shortcuts import render
 
-# TODO documentation
 def index(request):
+    """Renders the index page, which explains the CWE and the purpose of this
+    site."""
     return render(request, 'index.html')
 
-# TODO documentation
-# a view for python scripts
 def search_request(request):
+    """Runs a search and renders the results."""
     word = request.GET.get('search')
     return HttpResponse(main(word))
 
 
-# TODO documentation
-# An explanation of how the parameters work:
-#   - "request" is a standard Django object with various sub-objects and
-#     methods. For example, to get the value of a URL parameter passed to this
-#     function, you could use the code:
-#         var parm_value = request.GET.get('parm_name')
-#     Or to specify a default value, in the event the parameter was not set:
-#         var parm_value = request.GET.get('parm_name', 'parm_default_value')
 def search(request):
+    """Renders the search page (to start a new search)."""
     return render(request, 'search.html')
 
 def members(request):
+    """Renders the page documenting the project members."""
     return render(request, 'members.html')
 
-# TODO documentation
-# An explanation of parameters, continued:
-#   - "cwe" is a string that was directly captured by the regex in urls.py.
-#     That is, you don't have to get() it, just use it. To print its value,
-#     simply use code like this:
-#         print(cwe)
 def id(request, cwe):
+    """Obtains the CWE with the given ID and renders the CWE text."""
     return render(request, 'sample_cwe.html')
+    # TODO
     # If someone searches for a CWE ID that doesn't exist, you can have Django
     # automatically generate a 404 page by calling the code:
     #     raise Http404

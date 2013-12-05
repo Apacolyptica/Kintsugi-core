@@ -5,11 +5,11 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$',                  'kintsugi.views.index'),  # index page
-    url(r'^.+search\.py.*',	'kintsugi.views.search_request'),
-    url(r'^search/$',           'kintsugi.views.search'), # start a search or return results
-    url(r'^members/$',		'kintsugi.views.members'),
-    url(r'^cwe/(?P<cwe>\d+)/', 	'kintsugi.views.id')      # look up the CWE with this ID
+    url(r'^$',                  'kintsugi.views.index'),  # Index page
+    url(r'^.+search\.py.*',	'kintsugi.views.search_request'), # Execute a search
+    url(r'^search/$',           'kintsugi.views.search'), # Start a search
+    url(r'^members/$',		'kintsugi.views.members'),# Project members
+    url(r'^cwe/(?P<cwe>\d+)/', 	'kintsugi.views.id')      # Look up the CWE with this ID
   
     # Examples:
     # url(r'^$', 'kintsugi.views.home', name='home'),
