@@ -6,7 +6,7 @@ body {
 .wrapper {
 	margin-left: auto;
 	margin-right: auto;
-	width: 1000px;
+	width: 1300px;
 	
 	font-family: Georgia, serif;
 	color: #3E3F41;
@@ -53,8 +53,6 @@ body {
 }
 
 .navBar {
-	position: relative;
-	left: -10px;
 	margin: 10px;
 	text-align: center;
 	font-size: 18px;
@@ -77,9 +75,7 @@ body {
 
 .header li {
 	display: inline;
-	padding: 16px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding: 20px;
 }
 
 #home {
