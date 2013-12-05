@@ -4,8 +4,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Search - CWExplorer</title>
-		<link rel="stylesheet" type="text/css" href="/common.css"/>
-		<link rel="stylesheet" type="text/css" href="/search.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/search.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'/>
 	
 		<!-- Syntax highlighting stuff -->
@@ -29,8 +29,9 @@
 				<div class="navBar">
 					<ul>
 						<!-- TODO: Add real links -->
-						<li><a href="/django/">Home</a></li>
+						<li><a href="index.html">Home</a></li>
 						<li id="home">Search</li>
+						<li><a href="members.html">About</a></li>
 					</ul>
 				</div>
 				
@@ -38,6 +39,10 @@
 			
 			<div class="mainContent">
 				
+				<div class="history">
+					Search >
+				</div>
+
 				<div class="searchFilters">
 				
 					<h4 id="filterTitle">Narrow Your Search</h4>
@@ -108,6 +113,8 @@
 					</select>
 				</div>
 				
+				
+				
 				<div class="searchBar">
 				
 					<!-- TODO: Add an action path -->
@@ -116,25 +123,20 @@
 						<input type="submit" name="searchButton" value=""/>
 					</form>
 					
-				</div>
-				
-				
+				</div>	
 				
 				<div class="searchResults">
 					<h3 id="resultsTitle">Search Results</h3>
 					<!-- TODO: Add real links -->
 				</div>
-				
+
 			</div>
 				
 			<div class="footer">
 				CWE is a trademark of The MITRE Corporation
 				<br/>
 				&copy;2013<a href="http://www.unomaha.edu/" target="_blank">University of Nebraska at Omaha.</a>All rights Reserved.
-				<br/>
-				Fall 2013 Computer Science<a href="/django/members">Capstone Project.</a>
 			</div>
-			
 		</div>
 	</body>
 	
