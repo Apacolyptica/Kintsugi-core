@@ -34,7 +34,7 @@
 	border-radius: 3px;
 	padding: 10px;
 	
-	background-image: url(../images/ico_search.png);
+	background-image: url('/images/ico_search.png');
 	background-repeat:no-repeat;
 	background-position: center;
 	background-size: 18px 18px;
