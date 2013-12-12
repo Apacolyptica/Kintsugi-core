@@ -35,7 +35,11 @@
 			<div class="mainContent">
 			
 				<p>
-				A cwe will be here soon.
+				{% if cwe_result %}
+					{% autoescape off %}
+						{{ cwe_result }}
+					{% endautoescape %}
+				{% endif %}
 				</p>
 				
 			</div>

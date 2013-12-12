@@ -107,7 +107,6 @@
 
 				<div class="searchBar">
 				
-					<!-- TODO: Add an action path -->
 					<form action="search.py">
 						<input type="text" name="search" value=""/>
 						<input type="submit" name="searchButton" value=""/>
@@ -117,7 +116,21 @@
 				
 				<div class="searchResults">
 					<h3 id="resultsTitle">Search Results</h3>
-					<!-- TODO: Add real links -->
+
+					{% if ugly_results %}
+						<table>
+						<!-- {% autoescape off %}
+							{{ ugly_results }}
+						{% endautoescape %} -->
+						{% for result1, result2 in ugly_results %}
+							<tr><td><a href="/cwe/{{result1}}/">
+								{{ result1 }}
+							</a></td><td><a href="/cwe/{{result1}}/">
+								{{ result2 }}
+							</a></td></tr>
+						{% endfor %}
+						</table>
+					{% endif %}
 				</div>
 
 			</div>
