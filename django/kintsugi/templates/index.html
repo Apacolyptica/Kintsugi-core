@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+	<!-- ============================================= -->
+	<!-- = Header -->
+	<!-- ============================================= -->
 	<head>
 		<title>CWExplorer</title>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<!-- Links to a google font named "Lobster Two", which is used only in the main website title -->
 		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'/>
 	</head>
 	
+	<!-- ============================================= -->
+	<!-- = Body -->
+	<!-- ============================================= -->
 	<body>
 		<div class="wrapper">
 
+			<!-- ============================================= -->
+			<!-- = The top part of the website -->
+			<!-- ============================================= -->
+			
+			<!-- = Main website title -->
 			<div class="brandingTitle">
 				<h2 id="siteTitle1">Common Weakness</h2>
 				<h1 id="siteTitle2">Explorer</h1>
 			</div>
 			
+			<!-- = Website header bar -->
 			<div class="header">
+				
+				<!-- = Website navigation bar -->
 				<div class="navBar">
 					<ul>
 						<li id="home">Home</li>
@@ -26,24 +41,32 @@
 				</div>
 			</div>
 			
+			<!-- ============================================= -->
+			<!-- = The main contents of the page -->
+			<!-- ============================================= -->
 			<div class="mainContent">
+			
+				<!-- = Wraps around the two summaries so they can be more easily positioned with css -->
 				<div class="summaryWrapper">
+				
+					<!-- The summary of the websites purpose -->
 					<div class="summaryText">
 						<h3>What is the purpose of this site?</h3>
 						<p>
 							CWE Explorer allows easy searching of the CWE, or Common Weakness Enumeration, that aids users in academic and software security research. CWE Explorer's focus is on easy to use search functionality such as full-text search, data filtering, and result ranking. To start your search click on the button below labelled "Explore Weaknesses" or the "Search" button in the navigation bar. If you're unsure of what to search for try "buffer overflow" or "sql injection".
 						</p>
 						
+						<!-- The search button at the bottom of the website summary -->
 						<a id="divLink" href="/search/">
 							<div class="searchButton">
 								<h5>Search</h5>
 							</div>
 						</a>
-						
 					</div>
 					
+					<!-- The summary of what the CWE is -->
 					<div class="summaryCwe">
-						<h3>What is a CWE?</h3>
+						<h3>What is the CWE?</h3>
 						<p>
 							"<i>International in scope and free for public use, CWE provides a unified, measurable set of software weaknesses that is enabling more effective discussion, description, selection, and use of software security tools and services that can find these weaknesses in source code and operational systems as well as better understanding and management of software weaknesses related to architecture and design."</i><br/>Source:<a href="http://cwe.mitre.org/" target="_blank">cwe.mitre.org</a>
 						</p>
@@ -51,16 +74,21 @@
 						<a href="http://cwe.mitre.org/" target="_blank">Explore more about the CWE</a>
 						<br/>					
 					</div>
-				</div>
+					
+				</div>  <!-- End summaryWrapper -->
 				
-			</div>
+			</div> <!-- End mainContent -->
 				
+			<!-- ============================================= -->
+			<!-- = The footer that contains misc. info -->
+			<!-- ============================================= -->
 			<div class="footer">
 				CWE is a trademark of The MITRE Corporation
 				<br/>
 				&#169;2013<a href="http://www.unomaha.edu/" target="_blank">University of Nebraska at Omaha.</a>All rights Reserved.
 			</div>
-		</div>
+			
+		</div> <!-- End wrapper -->
+		
 	</body>
-	
 </html>

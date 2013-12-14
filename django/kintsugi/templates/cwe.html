@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+	<!-- ============================================= -->
+	<!-- = Header -->
+	<!-- ============================================= -->
 	<head>
-		<title>CWExplorer</title>
+		<title>Details - CWExplorer</title>
 		<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/details.css"/>
+		<!-- Links to a google font named "Lobster Two", which is used only in the main website title -->
 		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'/>
 		
 				<!-- Syntax highlighting stuff -->
@@ -14,15 +19,26 @@
 		<link rel="stylesheet" type="text/css" href="sh_nedit.css"/>
 	</head>
 	
+	<!-- ============================================= -->
+	<!-- = Body -->
+	<!-- ============================================= -->
 	<body onload="sh_highlightDocument();">
 		<div class="wrapper">
 
+			<!-- ============================================= -->
+			<!-- = The top part of the website -->
+			<!-- ============================================= -->
+			
+			<!-- = Main website title -->
 			<div class="brandingTitle">
 				<h2 id="siteTitle1">Common Weakness</h2>
 				<h1 id="siteTitle2">Explorer</h1>
 			</div>
 			
+			<!-- = Website header bar -->
 			<div class="header">
+			
+				<!-- = Website navigation bar -->
 				<div class="navBar">
 					<ul>
 						<li><a href="/">Home</a></li>
@@ -32,8 +48,12 @@
 				</div>
 			</div>
 			
+			<!-- ============================================= -->
+			<!-- = The main contents of the page -->
+			<!-- ============================================= -->
 			<div class="mainContent">
 			
+				<!-- The details of a CWE entry such as the description and relationships -->
 				<div class="cweDetails">
 					{% if cwe_result %}
 						{% autoescape off %}
@@ -42,14 +62,18 @@
 					{% endif %}
 				</div>
 				
-			</div>
+			</div> <!-- End mainContent -->
 				
+			<!-- ============================================= -->
+			<!-- = The footer that contains misc. info -->
+			<!-- ============================================= -->
 			<div class="footer">
 				CWE is a trademark of The MITRE Corporation
 				<br/>
 				&#169;2013<a href="http://www.unomaha.edu/" target="_blank">University of Nebraska at Omaha.</a>All rights Reserved.
 			</div>
-		</div>
+			
+		</div> <!-- End wrapper -->
+		
 	</body>
-	
 </html>

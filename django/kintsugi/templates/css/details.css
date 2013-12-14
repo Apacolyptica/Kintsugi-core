@@ -1,7 +1,7 @@
 .cweDetails {
 	margin: 10px;
 	padding: 20px;
-	width: 90%;
+	width: 95%;
 }
 
 .cweDetails h3 {
@@ -12,25 +12,45 @@
 	text-align: justify;
 }
 
-.cweDetails table {
-	width: 90%;
+.relationships table {
+	margin-left: 15px;
+	width: 100%;
 }
 
-.cweDetails thead {
+.relationships th {
 	border-bottom-style: solid;
 	border-bottom-color: grey;
 	border-bottom-width: 2px;
 }
 
-.cweDetails td {
+.relationships td {
 	padding: 5px;
+	text-align: center;
+	vertical-align: center;
 }
 
-.cweDetails tr {
+#cweTableName {
+	text-align: left;
+}
+
+.relationships tr {
 	padding: 5px;
 }
 
 /* Zebra striping for the table */
-.cweDetails tr:nth-child(even) {
+.relationships tr:nth-child(even) {
 	background-color: #EFF3EB;
+}
+
+.relationships {
+	margin-top: 20px;
+}
+
+.relationships h3 {
+	margin-bottom: 10px;
+}
+
+#mitreRef {
+	position: relative;
+	top: 20px;
 }
