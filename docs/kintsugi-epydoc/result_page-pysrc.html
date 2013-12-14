@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>result_page</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Apacolyptica/Kintsugi-core">CWE Explorer</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;result_page
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="result_page-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="result_page-module.html">Module result_page</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python3</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">Generates search result pages.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module result_queries=result_queries-module.html"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-0', 'result_queries', 'link-0');">result_queries</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">BaseXClient</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">KintsugiSettings</tt> <tt class="py-keyword">import</tt> <tt class="py-name">BASEX_KINTSUGI_PASSWORD</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#import sys</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="concat_query_make"></a><div id="concat_query_make-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="concat_query_make-toggle" onclick="return toggle('concat_query_make');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="result_page-module.html#concat_query_make">concat_query_make</a><tt class="py-op">(</tt><tt class="py-param">query_ends</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="concat_query_make-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="concat_query_make-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">        <tt class="py-docstring">"""This method concatenates several queries whose node returns a single value </tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">        DELIM is used as the delimiter between conatenated entries."""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-1', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Variable qGen.START=qGen-module.html#START,Variable result_queries.START=result_queries-module.html#START"><a title="qGen.START
+result_queries.START" class="py-name" href="#" onclick="return doclink('link-2', 'START', 'link-2');">START</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">        <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">query_ends</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">end</tt> <tt class="py-keyword">in</tt> <tt class="py-name">query_ends</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">start</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                                <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-name">end</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">                                <tt class="py-comment">#end is the varying return value to an otherwise identical query</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">start</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                                <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-string">" || \"DELIM\" || "</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                                <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-name">end</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">         </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                        <tt class="py-name">start</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                         </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-string">"(no query selected)"</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">         </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">query</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="search"></a><div id="search-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="search-toggle" onclick="return toggle('search');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="result_page-module.html#search">search</a><tt class="py-op">(</tt><tt class="py-param">queries</tt><tt class="py-op">,</tt> <tt class="py-param">session</tt><tt class="py-op">,</tt> <tt class="py-param">is_relation</tt><tt class="py-op">,</tt> <tt class="py-param">term</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="search-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="search-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        This method runs a given query in BaseX and returns the result text </tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        For the sake of formatting, CWE relationships are handled a little differently</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">page</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">temp_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">final_page</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">query</tt> <tt class="py-keyword">in</tt> <tt class="py-name">queries</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">is_relation</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-3', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="qGen.START
+result_queries.START" class="py-name" href="#" onclick="return doclink('link-4', 'START', 'link-2');">START</a></tt> <tt class="py-op">+</tt> <tt class="py-name">query</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-name">session</tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">bind</tt><tt class="py-op">(</tt><tt class="py-string">"$word"</tt><tt class="py-op">,</tt> <tt class="py-name">term</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-name">temp</tt> <tt class="py-op">=</tt> <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                <tt class="py-comment">#Because of stupidity with the relational part of the database</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-comment">#The relational output is handled a little differenty</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-comment">#ALGO If the query involves a CWE relationship</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">is_relation</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                        <tt class="py-name">temp_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">temp</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">" "</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                        <tt class="py-comment">#print(temp_list)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                        <tt class="py-name">page</tt> <tt class="py-op">=</tt> <tt class="py-name">temp_list</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                        <tt class="py-name">page</tt> <tt class="py-op">=</tt> <tt class="py-name">temp</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-comment">#This will produce 3 lists of identical length</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                 </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-comment">#If the lengths are not identical, we have a problem, so we'll make sure</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">is_relation</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                <tt class="py-name">final_page</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name" targets="Function result_page.format_relation_data()=result_page-module.html#format_relation_data"><a title="result_page.format_relation_data" class="py-name" href="#" onclick="return doclink('link-5', 'format_relation_data', 'link-5');">format_relation_data</a></tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">,</tt> <tt class="py-name">session</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-comment">#May need to replace this with a djangofied method</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-name">final_page</tt> <tt class="py-op">=</tt> <tt class="py-name">page</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">"DELIM"</tt><tt class="py-op">,</tt> <tt class="py-string">"&lt;br/&gt;&lt;br/&gt;"</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">         </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">final_page</tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">         </tt>
+<a name="format_relation_data"></a><div id="format_relation_data-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="format_relation_data-toggle" onclick="return toggle('format_relation_data');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="result_page-module.html#format_relation_data">format_relation_data</a><tt class="py-op">(</tt><tt class="py-param">page</tt><tt class="py-op">,</tt> <tt class="py-param">session</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="format_relation_data-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="format_relation_data-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        This method is is a temporary method to convert the CWE relationship data into a table</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        This method will be depricated by a django template in the future</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        The input data is a list of lists, the sub-lists are all of equal length.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        The sub-lists are the Relationship Category, Nature, and CWE identity.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        Each sub lists index corresponds with the other (page[0][0], page[1][0], page[2][0] are the first relationship)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        THIS METHOD WILL BE DEPRACATED ONCE A PROPER DJANGO TEMPLATE IS IMPLEMENTED</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">LINK_START</tt> <tt class="py-op">=</tt><tt class="py-string">"http://kintsugi.nucia.unomaha.edu/cwe/"</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-comment">#PUT AN ERROR CODE HERE?</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">final_page</tt> <tt class="py-op">=</tt> <tt class="py-string">"Unexpected error in data processing"</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-comment">#TODO: Refactor "table script" to use django templates if possible</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-comment">#ALGO: Converts the list-of-lists into a customizxed table</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-name">final_page</tt> <tt class="py-op">=</tt> <tt class="py-string">"&lt;table&gt;&lt;tr&gt;&lt;td&gt;Relationship Category&lt;/td&gt;&lt;td&gt;Relationship Nature&lt;/td&gt;&lt;td&gt;CWE&lt;/td&gt;&lt;/tr&gt;"</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                        <tt class="py-name">final_page</tt> <tt class="py-op">+=</tt> <tt class="py-string">"&lt;tr&gt;&lt;td&gt;"</tt> <tt class="py-op">+</tt> <tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;/td&gt;&lt;td&gt;"</tt> <tt class="py-op">+</tt> <tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;/td&gt;"</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                        <tt class="py-name">final_page</tt> <tt class="py-op">+=</tt> <tt class="py-string">"&lt;td&gt;"</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;a href = \""</tt> <tt class="py-op">+</tt> <tt class="py-name">LINK_START</tt> <tt class="py-op">+</tt> <tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">"\"&gt;"</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                        <tt class="py-name">final_page</tt> <tt class="py-op">+=</tt> <tt id="link-6" class="py-name" targets="Function result_page.nameLookup()=result_page-module.html#nameLookup"><a title="result_page.nameLookup" class="py-name" href="#" onclick="return doclink('link-6', 'nameLookup', 'link-6');">nameLookup</a></tt><tt class="py-op">(</tt><tt class="py-name">page</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">session</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;"</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-name">final_page</tt> <tt class="py-op">+=</tt> <tt class="py-string">"&lt;/table&gt;"</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">final_page</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="nameLookup"></a><div id="nameLookup-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="nameLookup-toggle" onclick="return toggle('nameLookup');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="result_page-module.html#nameLookup">nameLookup</a><tt class="py-op">(</tt><tt class="py-param">term</tt><tt class="py-op">,</tt> <tt class="py-param">session</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="nameLookup-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="nameLookup-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">        This method looks up the name of a given CWE ID.  The purpose of this method is to provide the name in</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">        the CWE relationship display, which is not in the relationship sub-entries in the database</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-comment">#IDEA: To improve scalability, implement a "shadow" database with only ID's and names for this method (Given its frequency of evocation)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-comment">#If the output stays "ERROR" We can put an error code or something"</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-7', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="qGen.START
+result_queries.START" class="py-name" href="#" onclick="return doclink('link-8', 'START', 'link-2');">START</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"data($v/@Name)"</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-comment">#query = "declare variable $word external; for $v in//*[@ID = $word] return data($v/@Name)"</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt id="link-9" class="py-name" targets="Function search_engine.output()=search_engine-module.html#output"><a title="search_engine.output" class="py-name" href="#" onclick="return doclink('link-9', 'output', 'link-9');">output</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"ERROR"</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-name">session</tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">bind</tt><tt class="py-op">(</tt><tt class="py-string">"$word"</tt><tt class="py-op">,</tt> <tt class="py-name">term</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt id="link-10" class="py-name"><a title="search_engine.output" class="py-name" href="#" onclick="return doclink('link-10', 'output', 'link-9');">output</a></tt> <tt class="py-op">=</tt> <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-11" class="py-name"><a title="search_engine.output" class="py-name" href="#" onclick="return doclink('link-11', 'output', 'link-9');">output</a></tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">         </tt>
+<a name="run_result_page"></a><div id="run_result_page-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="run_result_page-toggle" onclick="return toggle('run_result_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="result_page-module.html#run_result_page">run_result_page</a><tt class="py-op">(</tt><tt class="py-param">quest_item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="run_result_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="run_result_page-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">session</tt> <tt class="py-op">=</tt> <tt class="py-name">BaseXClient</tt><tt class="py-op">.</tt><tt class="py-name">Session</tt><tt class="py-op">(</tt><tt class="py-string">'localhost'</tt><tt class="py-op">,</tt> <tt class="py-number">1984</tt><tt class="py-op">,</tt> <tt class="py-string">'kintsugi'</tt><tt class="py-op">,</tt> <tt class="py-name">BASEX_KINTSUGI_PASSWORD</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-name">session</tt><tt class="py-op">.</tt><tt class="py-name">execute</tt><tt class="py-op">(</tt><tt class="py-string">"open cwec_v2-5"</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">         </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-comment">#the next method expects a list, so this appeases that expectation with</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-comment">#minimal redundant code</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">concat_query</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-12" class="py-name" targets="Function result_page.concat_query_make()=result_page-module.html#concat_query_make"><a title="result_page.concat_query_make" class="py-name" href="#" onclick="return doclink('link-12', 'concat_query_make', 'link-12');">concat_query_make</a></tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-13', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable result_queries.RETURN=result_queries-module.html#RETURN"><a title="result_queries.RETURN" class="py-name" href="#" onclick="return doclink('link-14', 'RETURN', 'link-14');">RETURN</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-string">"&lt;h3&gt;"</tt> <tt class="py-comment"># Added by Chris</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt id="link-15" class="py-name" targets="Function result_page.search()=result_page-module.html#search"><a title="result_page.search" class="py-name" href="#" onclick="return doclink('link-15', 'search', 'link-15');">search</a></tt><tt class="py-op">(</tt><tt class="py-name">concat_query</tt><tt class="py-op">,</tt> <tt class="py-name">session</tt><tt class="py-op">,</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">quest_item</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;/h3&gt;"</tt> <tt class="py-comment"># Added by Chris</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-comment">#cwe_result_out = cwe_result_out + "&lt;br /&gt;&lt;br /&gt;"</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;p&gt;"</tt> <tt class="py-comment"># Added by Chris</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt id="link-16" class="py-name"><a title="result_page.search" class="py-name" href="#" onclick="return doclink('link-16', 'search', 'link-15');">search</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt id="link-17" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-17', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable result_queries.ALT_TERM=result_queries-module.html#ALT_TERM"><a title="result_queries.ALT_TERM" class="py-name" href="#" onclick="return doclink('link-18', 'ALT_TERM', 'link-18');">ALT_TERM</a></tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">session</tt><tt class="py-op">,</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">quest_item</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;/p&gt;"</tt> <tt class="py-comment"># Added by Chris</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-comment">#cwe_result_out = cwe_result_out + "&lt;br /&gt;&lt;br /&gt;"</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt id="link-19" class="py-name"><a title="result_page.search" class="py-name" href="#" onclick="return doclink('link-19', 'search', 'link-15');">search</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="result_queries" class="py-name" href="#" onclick="return doclink('link-20', 'result_queries', 'link-0');">result_queries</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Variable result_queries.RELATION=result_queries-module.html#RELATION"><a title="result_queries.RELATION" class="py-name" href="#" onclick="return doclink('link-21', 'RELATION', 'link-21');">RELATION</a></tt><tt class="py-op">,</tt> <tt class="py-name">session</tt><tt class="py-op">,</tt> <tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">quest_item</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-comment">#cwe_result_out = cwe_result_out + "&lt;br /&gt;&lt;br /&gt;"</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">cwe_result_out</tt> <tt class="py-op">=</tt> <tt class="py-name">cwe_result_out</tt> <tt class="py-op">+</tt> <tt class="py-string">"&lt;a href = \"http://cwe.mitre.org/data/definitions/"</tt> <tt class="py-op">+</tt> <tt class="py-name">quest_item</tt> <tt class="py-op">+</tt> <tt class="py-string">".html\"&gt;See Mitre's site for more information&lt;/a&gt;"</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-name">session</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">         </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">cwe_result_out</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Apacolyptica/Kintsugi-core">CWE Explorer</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Dec 14 15:20:26 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
