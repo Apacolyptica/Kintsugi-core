@@ -119,16 +119,17 @@
 
 					{% if ugly_results %}
 						<table>
-						<!-- {% autoescape off %}
-							{{ ugly_results }}
-						{% endautoescape %} -->
-						{% for result1, result2 in ugly_results %}
-							<tr><td><a href="/cwe/{{result1}}/">
-								{{ result1 }}
-							</a></td><td><a href="/cwe/{{result1}}/">
-								{{ result2 }}
-							</a></td></tr>
-						{% endfor %}
+							<!-- TODO: comment this -->
+							{% for result1, result2 in ugly_results %}
+							<tr>
+								<td>
+									<a href="/cwe/{{result1}}/"> {{ result1 }} </a>
+								</td>
+								<td>
+									<a href="/cwe/{{result1}}/"> {{ result2 }} </a>
+								</td>
+							</tr>
+							{% endfor %}
 						</table>
 					{% endif %}
 				</div>

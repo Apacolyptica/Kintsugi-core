@@ -1,12 +1,36 @@
-#detailSection {
+.cweDetails {
 	margin: 10px;
-	padding: 10px;
+	padding: 20px;
+	width: 90%;
 }
 
-#detailSection h3 {
-
+.cweDetails h3 {
+	margin: 0px;
 }
 
-#detailSection p {
+.cweDetails p {
+	text-align: justify;
+}
 
+.cweDetails table {
+	width: 90%;
+}
+
+.cweDetails thead {
+	border-bottom-style: solid;
+	border-bottom-color: grey;
+	border-bottom-width: 2px;
+}
+
+.cweDetails td {
+	padding: 5px;
+}
+
+.cweDetails tr {
+	padding: 5px;
+}
+
+/* Zebra striping for the table */
+.cweDetails tr:nth-child(even) {
+	background-color: #EFF3EB;
 }

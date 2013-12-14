@@ -34,13 +34,13 @@
 			
 			<div class="mainContent">
 			
-				<p>
-				{% if cwe_result %}
-					{% autoescape off %}
-						{{ cwe_result }}
-					{% endautoescape %}
-				{% endif %}
-				</p>
+				<div class="cweDetails">
+					{% if cwe_result %}
+						{% autoescape off %}
+							{{ cwe_result }}
+						{% endautoescape %}
+					{% endif %}
+				</div>
 				
 			</div>
 				
