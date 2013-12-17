@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+"""
+Manages the kintsugi project.
+"""
+
 import os
 import sys
 

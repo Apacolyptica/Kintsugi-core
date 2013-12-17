@@ -55,7 +55,10 @@
 			
 				<!-- The details of a CWE entry such as the description and relationships -->
 				<div class="cweDetails">
+					<!-- check if the views.py returned a result from the query script -->
 					{% if cwe_result %}
+						<!-- print the result as is, removing the autoescape default
+							functionality of a django template and allow HTML tags -->
 						{% autoescape off %}
 							{{ cwe_result }}
 						{% endautoescape %}

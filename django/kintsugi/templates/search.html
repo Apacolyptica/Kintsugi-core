@@ -138,8 +138,11 @@
 				<div class="searchResults">
 					<h3 id="resultsTitle">Search Results</h3>
 
+					<!-- check if the views.py returned a result from the query script -->
 					{% if ugly_results %}
 						<table>
+							<!-- loop through the list that is returned, printing them out as hyperlinks to
+								the CWE result page for the appropriate weakness -->
 							{% for result1, result2 in ugly_results %}
 							<tr>
 								<td>
